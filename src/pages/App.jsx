@@ -34,7 +34,8 @@ export const  App = () => {
   //pablohdev/dio-clone
   const handleRemoveRepo = (id) =>{
     console.log('removendo registro', id)
-    return repos.filter(repo => {(repo.id !== id)})
+    const remove = repos.filter(repo => repo.id !== id);
+    setRepos([remove]);
   }
  
 
