@@ -13,8 +13,8 @@ export const  App = () => {
   const [repos, setRepos] = useState([]);
 
   const handleSearchRepo = async () => {
-    const { data } = await Api.get(`repos/${currentRepo}`)
-    console.log(data.id)
+    const { data } = await Api.get(`repos/${currentRepo}`);
+    
     if(data.id){
       const isExist = repos.find(repo => repo.id === data.id)
       if(!isExist){
@@ -24,10 +24,11 @@ export const  App = () => {
         alert('Repositório já existe')
         setCurrentRepo('');
       }
-      return
+      return;
     }
-      alert('Repositório não encontrado')
-      setCurrentRepo('');
+
+    alert('Repositório não encontrado')
+    setCurrentRepo('');
   }
 
   const handleRemoveRepo = (id) =>{
