@@ -14,28 +14,25 @@ export const  App = () => {
 
   const handleSearchRepo = async () => {
     const { data } = await Api.get(`repos/${currentRepo}`)
-
-    if(data){
+    console.log(data.id)
+    if(data.id){
       const isExist = repos.find(repo => repo.id === data.id)
       if(!isExist){
-
         setRepos(prev => [...prev, data]);
         setCurrentRepo('');
-        
       }else{
-
         alert('Repositório já existe')
+        setCurrentRepo('');
       }
-    }else{
-      alert('Repositório não encontrado')
+      return
     }
-    
+      alert('Repositório não encontrado')
+      setCurrentRepo('');
   }
-  //pablohdev/dio-clone
+
   const handleRemoveRepo = (id) =>{
-    console.log('removendo registro', id)
     const remove = repos.filter(repo => repo.id !== id);
-    setRepos([remove]);
+    setRepos(remove);
   }
  
 

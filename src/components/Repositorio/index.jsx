@@ -12,7 +12,7 @@ export const  ItemRepo = ({repo, handleRemoveRepo}) => {
       <h3>{repo.name}</h3>
       <p>{repo.full_name}</p>
       <a href={repo.html_url} target="_blank" className="repositorio">Ver Repositório</a><br/>
-      <a href='#' onClick={handleRemove} className="remover">Remover</a>
+      <a href='#'  onClick={handleRemove} className="remover">Remover</a>
       <hr/>
     </ItemContainer>
   )
